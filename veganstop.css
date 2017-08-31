@@ -1,0 +1,55 @@
+div.veganblocker {
+    position: absolute;
+    top: 0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    
+    /*border-top: 64px solid rgba(98, 118, 167, 0.5);*/
+}
+
+/*.veganblocker-profile-fader {
+	height: 64px;
+	background: rgba(98, 118, 167, 0.5); url('../images/bg.jpg') no-repeat left top;
+}*/
+
+.veganblocker-inner {
+	background: rgba(245, 247, 248, 0.90);
+    display: table;
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.timelineUnitContainer .timelineUnitContainer.veganstopped {
+	padding: 0;
+	border: 0;
+	
+}
+
+.veganblocker-disclaimer {
+	font-weight: bold;
+	margin-bottom: 10px;
+/*	height: 90px;
+	background: red url('/alert-icon.png');*/
+}
+
+.veganblocker-txt {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.veganblocker-close {
+	cursor: pointer;
+}
+
+.veganBlockDone {
+	font-size: 14px;
+}
+
+.temp_controller {
+	background: white;
+	padding: 10px;
+}
