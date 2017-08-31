@@ -1,5 +1,6 @@
 MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
+var valuestopped = 0;
 
 //definisco il blocco da schiantare in overlay
 blocker = '<div class="veganblocker">' +
@@ -88,6 +89,17 @@ $.fn.randomQuote = function () {
             console.log('quote undefined, restart...')
             element.randomQuote()
 
+        } else {
+            chrome.storage.sync.get(/* String or Array */["vegan-stopped"], function(items){
+                var value = parseInt(items["vegan-stopped"]);
+                value++;
+                valuestopped = value;
+                chrome.storage.sync.set({ "vegan-stopped": value }, function(){
+                    chrome.extension.sendMessage('');
+                });
+                //console.log(items);
+
+            });
         }
 
     }
@@ -185,7 +197,7 @@ $.fn.randomQuote = function () {
 
     function go() {
         var author = authors[Math.floor(Math.random() * authors.length)];
-        console.log(author);
+        //console.log(author);
         WikiquoteApi.getRandomQuote(author, successo, errore);
     }
 
@@ -235,7 +247,7 @@ var observer = new MutationObserver(function (mutations) {
         container = wallItem;
     } else if ($(".homeWiderContent")[0]){
         // nella home
-        console.log("IN HOME");
+        //console.log("IN HOME");
         //wallItem = $('[id^=hyperfeed_story_id]');
         wallItem = $('._4-u2.mbm');
         container = wallItem.parent();
@@ -279,4 +291,3 @@ var config = {
 
 // pass in the target node, as well as the observer options
 observer.observe(target, config);
-console.log("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEeeee");
