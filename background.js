@@ -2,15 +2,26 @@
  * Created by gx on 31/08/17.
  */
 
-chrome.storage.sync.get(/* String or Array */["vegan-stopped"], function(items){
-    var value = (items["vegan-stopped"]).toString();;
+function getValue(value) {
+    if (value) {
+        value = value.toString();
+    } else {
+        value = "0";
+    }
+    return value;
+}
 
+chrome.storage.sync.get(/* String or Array */["vegan-stopped"], function (items) {
+    var value = getValue(items["vegan-stopped"]);
     chrome.browserAction.setBadgeText({text: value});
 });
 
-chrome.extension.onMessage.addListener(function(message, sender) {
-    chrome.storage.sync.get(/* String or Array */["vegan-stopped"], function(items){
-        var value = (items["vegan-stopped"]).toString();
-        chrome.browserAction.setBadgeText({text: value});
-    });
+chrome.extension.onMessage.addListener(function (message, sender) {
+    if (message == "vegan-stopped-msg") {
+        chrome.storage.sync.get(/* String or Array */["vegan-stopped"], function (items) {
+            var value = getValue(items["vegan-stopped"]);
+            chrome.browserAction.setBadgeText({text: value});
+        });
+    }
+
 });

@@ -1,7 +1,7 @@
 {
   "name": "VeganSTOP",
   "manifest_version": 2,
-  "version": "0.6",
+  "version": "0.6.1",
   "description": "Rimuove la spazzatura Vegana dalla timeline facebook",
   "icons": {
     "16": "icon16.png",

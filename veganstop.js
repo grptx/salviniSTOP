@@ -92,10 +92,13 @@ $.fn.randomQuote = function () {
         } else {
             chrome.storage.sync.get(/* String or Array */["vegan-stopped"], function(items){
                 var value = parseInt(items["vegan-stopped"]);
+                if(!value) {
+                    value=0;
+                }
                 value++;
                 valuestopped = value;
                 chrome.storage.sync.set({ "vegan-stopped": value }, function(){
-                    chrome.extension.sendMessage('');
+                    chrome.extension.sendMessage('vegan-stopped-msg');
                 });
                 //console.log(items);
 
