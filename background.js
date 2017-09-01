@@ -10,8 +10,7 @@ chrome.storage.sync.get(/* String or Array */["vegan-stopped"], function(items){
 
 chrome.extension.onMessage.addListener(function(message, sender) {
     chrome.storage.sync.get(/* String or Array */["vegan-stopped"], function(items){
-        var value = (items["vegan-stopped"]).toString();;
-
+        var value = (items["vegan-stopped"]).toString();
         chrome.browserAction.setBadgeText({text: value});
     });
 });
