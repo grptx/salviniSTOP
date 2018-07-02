@@ -3,14 +3,14 @@ MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 var valuestopped = 0;
 
 //definisco il blocco da schiantare in overlay
-blocker = '<div class="veganblocker">' +
-    '<div class="veganblocker-profile-fader"></div>' +
-    '<div class="veganblocker-inner">' +
-    '<div class="veganblocker-txt">' +
-    '<div class="veganblocker-disclaimer fwb">ATTENZIONE, può contenere materiale vegano</div>' +
-    '<div class="veganblocker-ctas">' +
-    '<span class="veganblocker-cta quote _42ft _4jy0 _4jy3 _517h">Sostituisci con perla random</span>' +
-    '<span class="veganblocker-close _42ft _4jy0 _4jy3 _517h">Mi arrischio.</span>' +
+blocker = '<div class="salviniblocker">' +
+    '<div class="salviniblocker-profile-fader"></div>' +
+    '<div class="salviniblocker-inner">' +
+    '<div class="salviniblocker-txt">' +
+    '<div class="salviniblocker-disclaimer fwb">ATTENZIONE, può contenere materiale fascioleghista</div>' +
+    '<div class="salviniblocker-ctas">' +
+    '<span class="salviniblocker-cta quote _42ft _4jy0 _4jy3 _517h">Sostituisci con perla random</span>' +
+    '<span class="salviniblocker-close _42ft _4jy0 _4jy3 _517h">Mi arrischio.</span>' +
     '</div>' +
     '</div>' +
     '</div>' +
@@ -18,22 +18,17 @@ blocker = '<div class="veganblocker">' +
 
 //definisco le chiavi di ricerca
 keywords = [
-    /(vegan)+/gi,
-    /(vegetarian)+/gi,
-    /(antiveg)+/gi,
-    /(anti\-veg)+/gi,
-    /(mangiacadaver)+/gi,
-    /(mangia\-cadaver)+/gi,
-    /(soia)+/gi,
-    /(tofu)+/gi
+    /(salvin)+/gi,
+    /(lega)+/gi,
+    /(primagliitaliani)+/gi
 ];
 
 
 var newPost =
     '<div class="topBorder"></div>' +
-    '<div class="veganstopped">' +
+    '<div class="salvinistopped">' +
     '<div role="article">' +
-    '<div class="userContentWrapper veganBlockDone"></div>' +
+    '<div class="userContentWrapper salviniBlockDone"></div>' +
     '</div>' +
     '</div>' +
     '<div class="bottomBorder"></div>';
@@ -49,7 +44,7 @@ $.fn.randomQuote = function () {
 
     element.wrapInner('<div class="temp_controller"></div>');
 
-    var blocker = element.find('.veganblocker');
+    var blocker = element.find('.salviniblocker');
     var old = element.find('.temp_controller');
 
     blocker.appendTo(element);
@@ -67,11 +62,11 @@ $.fn.randomQuote = function () {
         var curHeight = old.height();
         old.css('height', 'auto');
 
-        old.append(newPost).css({'opacity': '0'}).find('.veganstopped').prepend(userInfo);
+        old.append(newPost).css({'opacity': '0'}).find('.salvinistopped').prepend(userInfo);
 
         //var authLink = results.titles.replace(' ', '+')
 
-        var str = '<span class="veganblock-quote">' + results.quote + '</span><br><br>(' + results.titles + ')';
+        var str = '<span class="salviniblock-quote">' + results.quote + '</span><br><br>(' + results.titles + ')';
 
         var html = $.parseHTML(str);
         element.find('.userContentWrapper').append(html);
@@ -85,20 +80,20 @@ $.fn.randomQuote = function () {
 
 
         //se è vuota recuperane un altra
-        if (old.find('.veganblock-quote').text() == 'undefined') {
+        if (old.find('.salviniblock-quote').text() == 'undefined') {
             console.log('quote undefined, restart...')
             element.randomQuote()
 
         } else {
-            chrome.storage.sync.get(/* String or Array */["vegan-stopped"], function(items){
-                var value = parseInt(items["vegan-stopped"]);
+            chrome.storage.sync.get(/* String or Array */["salvini-stopped"], function(items){
+                var value = parseInt(items["salvini-stopped"]);
                 if(!value) {
                     value=0;
                 }
                 value++;
                 valuestopped = value;
-                chrome.storage.sync.set({ "vegan-stopped": value }, function(){
-                    chrome.extension.sendMessage('vegan-stopped-msg');
+                chrome.storage.sync.set({ "salvini-stopped": value }, function(){
+                    chrome.extension.sendMessage('salvini-stopped-msg');
                 });
                 //console.log(items);
 
@@ -213,23 +208,23 @@ $.fn.block = function (container) {
     var container = container;
     var current = this;
     if (
-        !this.hasClass('veganblocked')
+        !this.hasClass('salviniblocked')
         &&
-        !this.parents('.veganblocked').length > 0
+        !this.parents('.salviniblocked').length > 0
     ) {
 
-        this.addClass('veganblocked').prepend(blocker);
+        this.addClass('salviniblocked').prepend(blocker);
 
-        this.find('.veganblocker-close').click(function () {
-            $(this).closest('div.veganblocker').animate({
+        this.find('.salviniblocker-close').click(function () {
+            $(this).closest('div.salviniblocker').animate({
                 'opacity': 0
             }, 150, function () {
-                $(this).closest('div.veganblocker').remove()
+                $(this).closest('div.salviniblocker').remove()
             })
 
         });
 
-        this.find('.veganblocker-cta.quote').click(function () {
+        this.find('.salviniblocker-cta.quote').click(function () {
             //qui chiamo la citazione
             current.randomQuote()
         })

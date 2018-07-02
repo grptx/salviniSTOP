@@ -1,8 +1,8 @@
 {
-  "name": "VeganSTOP",
+  "name": "SalviniSTOP",
   "manifest_version": 2,
   "version": "0.6.1",
-  "description": "Rimuove la spazzatura Vegana dalla timeline facebook",
+  "description": "Rimuove la spazzatura Fascioleghista dalla timeline facebook",
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",
@@ -21,10 +21,10 @@
       "js": [
         "jquery.min.js",
         "wikiquote-api.js",
-        "veganstop.js"
+        "salvinistop.js"
       ],
       "css": [
-        "veganstop.css"
+        "salvinistop.css"
       ],
       "run_at": "document_end"
     }

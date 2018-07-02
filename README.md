@@ -1,9 +1,9 @@
-VeganSTOP
+SalviniSTOP
 ======
 
 Estensione per Google Chrome
 
-Rimuove la spazzatura Vegana dalla timeline facebook
+Rimuove la spazzatura Fascioleghista dalla timeline facebook
 
 basato sull'ottima estensione di Giovanni Di Maggio m5stop
 

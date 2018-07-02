@@ -1,4 +1,4 @@
-div.veganblocker {
+div.salviniblocker {
     position: absolute;
     top: 0;
     left:0;
@@ -9,12 +9,12 @@ div.veganblocker {
     /*border-top: 64px solid rgba(98, 118, 167, 0.5);*/
 }
 
-/*.veganblocker-profile-fader {
+/*.salviniblocker-profile-fader {
 	height: 64px;
 	background: rgba(98, 118, 167, 0.5); url('../images/bg.jpg') no-repeat left top;
 }*/
 
-.veganblocker-inner {
+.salviniblocker-inner {
 	background: rgba(245, 247, 248, 0.90);
     display: table;
     height: 100%;
@@ -23,29 +23,29 @@ div.veganblocker {
     text-align: center;
 }
 
-.timelineUnitContainer .timelineUnitContainer.veganstopped {
+.timelineUnitContainer .timelineUnitContainer.salvinistopped {
 	padding: 0;
 	border: 0;
 	
 }
 
-.veganblocker-disclaimer {
+.salviniblocker-disclaimer {
 	font-weight: bold;
 	margin-bottom: 10px;
 /*	height: 90px;
 	background: red url('/alert-icon.png');*/
 }
 
-.veganblocker-txt {
+.salviniblocker-txt {
     display: table-cell;
     vertical-align: middle;
 }
 
-.veganblocker-close {
+.salviniblocker-close {
 	cursor: pointer;
 }
 
-.veganBlockDone {
+.salviniBlockDone {
 	font-size: 14px;
 }
 
