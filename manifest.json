@@ -1,7 +1,7 @@
 {
   "name": "SalviniSTOP",
   "manifest_version": 2,
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Rimuove la spazzatura Fascioleghista dalla timeline facebook",
   "icons": {
     "16": "icon16.png",

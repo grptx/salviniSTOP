@@ -20,7 +20,9 @@ blocker = '<div class="salviniblocker">' +
 keywords = [
     /(salvin)+/gi,
     /(lega)+/gi,
-    /(primagliitaliani)+/gi
+    /(primagliitaliani)+/gi,
+    /(sovranism)+/gi,
+    /(vicepremier)+/gi
 ];
 
 
